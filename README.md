@@ -1,6 +1,6 @@
 # MuFullAnisoPowderTF
 
-`MuFullAnisoPowderTF` is a plug-in user function for musrfit that calculates the transverse-field μSR polarization of powder-averaged muonium with a fully anisotropic hyperfine tensor characterized with three principal values [A_{xx}, A_{yy}, A_{zz}].
+`MuFullAnisoPowderTF` is a plug-in user function for [musrfit](https://rmlmcfadden.github.io/musr/musrfit/) that calculates the transverse-field μSR polarization of powder-averaged muonium with a fully anisotropic hyperfine tensor characterized with three principal values [A_{xx}, A_{yy}, A_{zz}].
 The function is intended for modelling non-axial Mu\(^0\) states in weak transverse-field μSR spectra.
 
 ## Author
