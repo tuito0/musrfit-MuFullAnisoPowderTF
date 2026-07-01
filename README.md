@@ -58,7 +58,7 @@ The user function takes six parameters:
     par[2] = Azz       [MHz]
     par[3] = f_cut     [MHz]
     par[4] = t_offset  [microsec]
-    par[5] = B_tf      [T]
+    par[5] = Btf      [T]
 
 ### Axx, Ayy, Azz
 
