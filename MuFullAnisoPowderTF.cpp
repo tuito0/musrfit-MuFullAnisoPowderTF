@@ -62,6 +62,7 @@ namespace {
 
   // Ignore extremely small spectral components.
   constexpr double AMP_EPS = 1.0e-10;
+  constexpr double FREQ_EPS = 1.0e-5;  
 
   // Conservative thread-safety for static cache.
   std::mutex g_cache_mutex;
@@ -211,6 +212,8 @@ void MuFullAnisoPowderTF::rebuildCache(double Axx,
 
   const int Ntot = NDIR * NPSI;
 
+  double zero_freq_amp_sum = 0.0;  
+
   for (int idir = 1; idir <= NDIR; ++idir) {
 
     double Q0[3][3];
@@ -289,6 +292,9 @@ void MuFullAnisoPowderTF::rebuildCache(double Axx,
             cache_freq_MHz.push_back(f);
             cache_amp_re.push_back(amp.real());
             cache_amp_im.push_back(amp.imag());
+	    if (std::abs(f) < FREQ_EPS) {
+	      zero_freq_amp_sum += amp.real();
+	    }
           }
         }
       }
@@ -306,6 +312,8 @@ void MuFullAnisoPowderTF::rebuildCache(double Axx,
             << "Number of spectral components = "
             << cache_freq_MHz.size()
             << std::endl;
+  std::cout << "Sum of zero-frequency amplitudes = "
+	    << zero_freq_amp_sum << std::endl;
 }
 
 // ----------------------------------------------------------------------
